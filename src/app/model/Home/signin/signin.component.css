@@ -17,11 +17,13 @@ body {
     top: 50px;
     right: 100px;
 }
-#icon{
+.iconHome{
     display: flex;
     position: absolute;
-    top: 50px; /* Coloca el div en la parte superior */
+    top: 50px;
     left: 100px;
+    cursor: pointer;
+    color: aliceblue;
 }
 .in{
     background-color: #FBF9F1;

@@ -28,7 +28,8 @@ h1{
 .navEnd.menu-open {
     margin-bottom: 20px; /* Ajusta según la cantidad de píxeles deseados */
 }
-#icon{
+.iconUser{
+    color: aliceblue;
     margin-right: 12px;
 }
 .listIcon {
@@ -116,55 +117,42 @@ h1{
     flex-direction: column;
     justify-content: center;
 }
-
-
 .footer{
     background-color: #E5E1DA;
-    height: 100px;
+    height: 130px;
     width: 100%;
-    border: none; /* Elimina el borde */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif
+}
+.footer a{
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    font-family:'Times New Roman', Times, serif
+}
+.iconInstagram{
+    color: #E4405F;
+}
+.iconFacebook{
+    color: #1877f2
 }
 .social{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin-left: 130px;
-}
-.social a{
-    color: #000;
-    font-size: 14px;
-    margin-left: 12px;
-    text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.social i{
-    margin-bottom: 12px;
-}
-.fa-instagram{
-    margin-top: 15px;
+    margin-left: 3em;
+    gap: 12px;
 }
 .aboutUs{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -65px;
-}
-.aboutUs a{
-    color: #000;
-    text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .contact{
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
     flex-direction: column;
-    margin-right: 100px;
-    color: #000;
-    margin-top: -60px;
-}
-.contact p{
-    margin-bottom: -5px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-right: 3em;
+    gap: 12px;
 }
