@@ -1,0 +1,114 @@
+.header{
+    background-color: #AAD7D9;
+    height: 100px;
+    width: 100%;
+}
+h1{  
+    display: flex;
+    align-content: center;
+    color: aliceblue;
+    margin-left: 20px;
+    padding-top: 30px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.divH{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 95px;
+    margin-top: -30px;
+}
+.divH button{
+    text-align: center;
+    color: black;
+    background-color: #FBF9F1;
+    border-color: #FBF9F1;
+    border-radius: 8px;
+    margin-right: 12px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.carousel-caption h3{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(0, 0,0, .4);
+}
+.carousel-caption p{
+    width: 400px;
+    background-color: rgb(0, 0,0, .4);
+}
+.carousel-caption{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h3, p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.carousel-item #img{
+    width: 100%;
+    min-height: 300px;
+    max-height: 700px;
+    position: relative;
+    object-fit: cover;
+}
+.carousel-inner{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.footer{
+    background-color: #E5E1DA;
+    height: 100px;
+    width: 100%;
+    border: none;
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 130px;
+}
+.social a{
+    color: #000;
+    font-size: 14px;
+    margin-left: 12px;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.social i{
+    margin-bottom: 12px;
+}
+.fa-instagram{
+    margin-top: 15px;
+}
+.aboutUs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -65px;
+}
+.aboutUs a{
+    color: #000;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.contact{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-right: 100px;
+    color: #000;
+    margin-top: -60px;
+}
+.contact p{
+    margin-bottom: -5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

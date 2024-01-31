@@ -22,8 +22,6 @@ import {MatRadioModule} from '@angular/material/radio';
     BrowserAnimationsModule,
     ModelModule,
     RestaurantModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatRadioModule
   ],
   providers: [],

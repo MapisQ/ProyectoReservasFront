@@ -4,6 +4,7 @@ import { HomeComponent } from './Home/home/home.component';
 import { LoginComponent } from './Home/login/login.component';
 import { SigninComponent } from './Home/signin/signin.component';
 import { AboutUsComponent } from './Home/about-us/about-us.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { AboutUsComponent } from './Home/about-us/about-us.component';
     AboutUsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ModelModule { }
