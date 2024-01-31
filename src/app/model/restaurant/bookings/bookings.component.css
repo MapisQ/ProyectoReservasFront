@@ -28,7 +28,8 @@ h1{
 .navEnd.menu-open {
     margin-bottom: 20px; /* Ajusta según la cantidad de píxeles deseados */
 }
-#icon{
+.iconUser{
+    color: aliceblue;
     margin-right: 12px;
 }
 .listIcon {
