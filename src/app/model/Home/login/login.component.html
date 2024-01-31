@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <a routerLink="/Home"><i class="fa-solid fa-house fa-2x" style="color: #ffffff;" id="icon"></i></a>
+        <div class="divH">
+            <button type="submit" class="in" (click)="Login()">Login</button>
+            <button type="submit" class="in" (click)="Signin()">Signin</button>
+        </div>
+    </header>
+
+    <div class="div1">
+        <h1>Login</h1>
+        <form [formGroup]="loginForm" class="form">
+            <label for="" class="label">UserName</label>
+            <input type="text" class="input" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
+            <label for="" class="label">Password</label>
+            <input type="password" class="input" placeholder="Ingresa tu contraseña" formControlName="password">
+            <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div> 
+</body>
+</html>
