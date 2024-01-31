@@ -1,1 +1,92 @@
-<p>favorites works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Restaurants</title>
+</head>
+    <body>
+        
+        <header class="header" id="hf">     
+            <nav class="navBar" >
+                <h1>Booking Restaurant Tables</h1>
+                <div class="navEnd">
+                    <i class="fa-solid fa-circle-user fa-2x" style="color: #ffffff;" id="icon"></i>
+                    <label for="iMenu" class="labMenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="listIcon" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                    </label>
+                    <input type="checkbox" id="iMenu" class="inputMenu">
+                    <ul class="ulMenu">
+                        <li class="liMenu">
+                            <a routerLink="/Restaurant" class="linkMenu">Inicio</a>
+                        </li>
+                        <li class="liMenu">
+                            <a routerLink="/Bookings" class="linkMenu">Reservas</a>
+                        </li>
+                        <li class="liMenu">
+                            <a routerLink="/Favorites" class="linkMenu">Mis Favoritos</a>
+                        </li>
+                        <li class="liMenu">
+                            <a routerLink="/Home" class="linkMenu">Cerrar Sesión</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div>
+            <div class="search" >
+                <form class="d-flex">
+                    <input class="form-control" type="text" placeholder="Search" id="inputS">
+                </form>
+            </div>
+
+            <div class="tittle">
+                <h1>Mis Favoritos</h1>
+            </div>
+    
+            <div class="restaurants">
+                <div class="card" *ngFor="let favorite of favorites">
+                    <div class="face front">
+                        <img  [src]="favorite.img">
+                        <h3>{{favorite.name}}</h3>
+                    </div>
+                    <div class="face back">
+                        <h3>{{favorite.name}}</h3>
+                        <p>
+                            {{favorite.speciality}}
+                            <br>
+                            {{favorite.adress}}
+                        </p>
+                        <div class="link">
+                            <a href="/Bookings"><i class="fa-solid fa-circle-plus" style="color: #ffffff;" id="iconB"></i></a>
+                            <a [attr.href]="favorite.url">Details</a>
+                            <a  ><i class="fa-regular fa-heart" style="color: #ffffff;" id="iconB"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" id="hf">
+            <div class="social">
+                <i class="fa-brands fa-instagram" style="color: #cd1d96;" id="FIcon"><a href="https://www.instagram.com/" target="_blank">Instagram</a></i>
+                <i class="fa-brands fa-facebook" id="FIcon"><a href="https://www.facebook.com/" target="_blank">Facebook</a></i>
+                <i class="fa-brands fa-twitter" style="color: #74C0FC;" id="FIcon"><a href="https://twitter.com/?lang=es" target="_blank">Twitter</a></i>
+            </div>
+            <div class="aboutUs">
+                <a routerLink="/AboutUs">¿Quiénes Somos?</a>
+                <a routerLink="">Soporte al cliente</a>
+            </div>
+            <div class="contact">
+                <p>Contacto: +57 3669842151</p>
+                <p>Teléfono Fijo: 045731</p>
+                <p>WhatsApp: +57 3669842151</p>
+            </div>
+        </footer>
+
+    </body>
+</html>

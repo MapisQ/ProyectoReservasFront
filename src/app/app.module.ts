@@ -7,9 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ModelModule } from './model/model.module';
 import { RestaurantModule } from './model/restaurant/restaurant.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatRadioModule} from '@angular/material/radio';
-
 
 @NgModule({
   declarations: [
@@ -21,8 +18,8 @@ import {MatRadioModule} from '@angular/material/radio';
     AppRoutingModule,
     BrowserAnimationsModule,
     ModelModule,
-    RestaurantModule,
-    MatRadioModule
+    RestaurantModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

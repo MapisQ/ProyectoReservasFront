@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantHomeComponent } from './restaurant-home/restaurant-home.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { BookingsComponent } from './bookings/bookings.component';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { BookingsComponent } from './bookings/bookings.component';
     BookingsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatRadioModule
   ]
 })
 export class RestaurantModule { }
