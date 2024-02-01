@@ -8,6 +8,7 @@ import { RestaurantHomeComponent } from './model/restaurant/restaurant-home/rest
 import { FavoritesComponent } from './model/restaurant/favorites/favorites.component';
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path:'AboutUs', component:AboutUsComponent},
   {path:'RestaurantHome', component:RestaurantHomeComponent},
   {path:'Favorites', component:FavoritesComponent},
-  {path:'Bookings', component:BookingsComponent,  pathMatch:'full'},
+  {path:'MyBookings', component:MyBookingsComponent},
   {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent},
   {path:'**', component:NotFoundPageComponent}
 ];

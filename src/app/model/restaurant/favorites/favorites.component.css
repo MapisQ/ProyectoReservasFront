@@ -40,7 +40,7 @@ h1{
     display: none;
 }
 .inputMenu:checked + .ulMenu{
-    height: 200px;
+    height: 160px;
 }
 .ulMenu {
     list-style: none;
@@ -154,6 +154,9 @@ h1{
 .card .back .link a{
     text-decoration: none;
     color: #f3f3f3;
+}
+.like{
+    color: #ff6262 ;
 }
 #iconB{
     cursor: pointer;
