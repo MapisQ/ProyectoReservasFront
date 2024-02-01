@@ -61,7 +61,6 @@ export class RestaurantServiceService {
 }]
 
   private favoritesRestaurants:restaurantInterface[]=[]
-
   get Restaurant(){
     return this.restaurants;
   }
@@ -72,6 +71,12 @@ export class RestaurantServiceService {
 
   addToFavorites(FavoritesRestaurants:restaurantInterface){
     this.favoritesRestaurants=[...this.favoritesRestaurants, FavoritesRestaurants];
+  }
+
+  removeToFavorites(restaurant: restaurantInterface) {
+    this.favoritesRestaurants = this.FavoritesRestaurants.filter(
+      (favRestaurant) => favRestaurant !== restaurant
+    );
   }
 
 }

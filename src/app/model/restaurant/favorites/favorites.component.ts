@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-favorites',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class FavoritesComponent {
 
   favorites:restaurantInterface[]=[]
-
+  favRestaurant:restaurantInterface[]=[]
   router=inject(Router);
 
   constructor(private _service:RestaurantServiceService){
@@ -24,9 +25,23 @@ export class FavoritesComponent {
     this.router.navigate(['/Bookings', restaurantName,restaurantImg]);
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
   }
-
-  removeToFavorites(){
-
+  
+  removeToFavorites(restaurant: restaurantInterface) {
+    const isAlreadyInFavorites = this.favorites.some(
+      (favRestaurant) => favRestaurant === restaurant
+    );
+  
+    if (isAlreadyInFavorites) {
+      // Si ya es favorito, quitarlo de la lista
+      this.favorites = this.favorites.filter(
+        (favRestaurant) => favRestaurant !== restaurant
+      );
+    } else {
+      // Si no es favorito, agregarlo a la lista
+      //this.favorites = [...this.favorites, restaurant];
+      alert('No tienes el resturante en favoritos')
+    }
   }
+  
 
 }
