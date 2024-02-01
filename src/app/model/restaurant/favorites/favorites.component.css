@@ -148,7 +148,8 @@ h1{
     line-height: 50px; 
     display: flex;
     justify-content: space-between;
-    margin: 0 3rem;
+    cursor: pointer;
+    margin: 0 3em;
 }
 .card .back .link a{
     text-decoration: none;

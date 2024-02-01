@@ -18,8 +18,8 @@ const routes: Routes = [
   {path:'AboutUs', component:AboutUsComponent},
   {path:'RestaurantHome', component:RestaurantHomeComponent},
   {path:'Favorites', component:FavoritesComponent},
-  {path:'Bookings', component:BookingsComponent},
-  {path:'Bookings/:name/:img', component:RestaurantHomeComponent},
+  {path:'Bookings', component:BookingsComponent,  pathMatch:'full'},
+  {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent},
   {path:'**', component:NotFoundPageComponent}
 ];
 
