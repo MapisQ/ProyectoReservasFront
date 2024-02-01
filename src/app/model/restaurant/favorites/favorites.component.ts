@@ -25,4 +25,8 @@ export class FavoritesComponent {
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
   }
 
+  removeToFavorites(){
+
+  }
+
 }

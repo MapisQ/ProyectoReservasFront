@@ -17,6 +17,7 @@ import { FavoritesComponent } from './model/restaurant/favorites/favorites.compo
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { MatRadioModule } from '@angular/material/radio';
 
+
 @NgModule({
   declarations: [
     AppComponent,

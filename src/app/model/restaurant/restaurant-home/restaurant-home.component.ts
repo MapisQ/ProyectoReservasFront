@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
 
@@ -8,12 +8,11 @@ import { RestaurantServiceService } from '../restaurant-service.service';
   templateUrl: './restaurant-home.component.html',
   styleUrls: ['./restaurant-home.component.css']
 })
-export class RestaurantHomeComponent {
+export class RestaurantHomeComponent{
 
-  router=inject(Router);
+  router=inject(Router); 
 
   restaurants:restaurantInterface[]=[]
-  
 
   constructor(private _service:RestaurantServiceService){
     this.restaurants = this._service.restaurants;
@@ -25,7 +24,7 @@ export class RestaurantHomeComponent {
   }
 
   selectedComponents(restaurantName: string, restaurantImg:string){
-    this.router.navigate(['/Bookings', restaurantName,restaurantImg]);
+    this.router.navigate(['/Bookings', encodeURIComponent(restaurantName), encodeURIComponent(restaurantImg)]);
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
   }
 

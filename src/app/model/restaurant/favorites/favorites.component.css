@@ -149,7 +149,7 @@ h1{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    margin: 0 3rem;
+    margin: 0 3em;
 }
 .card .back .link a{
     text-decoration: none;

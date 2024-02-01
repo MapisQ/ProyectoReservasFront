@@ -15,17 +15,27 @@ export class BookingsComponent implements OnInit{
   restaurants:restaurantInterface[]=[]
   selectedRName:string='';
   selectedRImg:string='';
+  selector:String ='null';
 
   constructor(private _service:RestaurantServiceService){
     this.restaurants = this._service.restaurants;
     //console.log(this.restaurants); 
+    console.log(this.selector);
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.selectedRName = params['name'];
-      this.selectedRImg = params['img'];
+      this.selectedRName = decodeURIComponent(params['restaurantName']);
+      this.selectedRImg = decodeURIComponent(params['restaurantImg']);
     });
   }
+
+  valueSelected(){
+    if(this.selector !== 'null'){
+      //console.log('El valor seleccionado es:', this.selector)
+    }
+
+  }
+  
 
 }
