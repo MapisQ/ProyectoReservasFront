@@ -16,6 +16,7 @@ import { RestaurantHomeComponent } from './model/restaurant/restaurant-home/rest
 import { FavoritesComponent } from './model/restaurant/favorites/favorites.component';
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MatRadioModule } from '@angular/material/radio';
     AboutUsComponent,
     RestaurantHomeComponent,
     FavoritesComponent,
-    BookingsComponent
+    BookingsComponent,
+    MyBookingsComponent
   ],
   imports: [
     BrowserModule,

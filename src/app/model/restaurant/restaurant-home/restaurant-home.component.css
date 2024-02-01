@@ -40,7 +40,7 @@ h1{
     display: none;
 }
 .inputMenu:checked + .ulMenu{
-    height: 200px;
+    height: 160px;
 }
 .ulMenu {
     list-style: none;
