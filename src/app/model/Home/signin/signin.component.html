@@ -39,7 +39,7 @@
             </div>
         </form>
         <div class="button">
-            <button type="submit" class="button" [disabled]="signinForm.invalid">Login</button>
+            <button type="submit" class="button" [disabled]="signinForm.invalid" (click)="signinValues()">Login</button>
         </div>
     </div>
 </body>

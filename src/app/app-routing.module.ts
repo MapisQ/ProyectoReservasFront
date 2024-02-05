@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'AboutUs', component:AboutUsComponent},
   {path:'RestaurantHome', component:RestaurantHomeComponent},
   {path:'Favorites', component:FavoritesComponent},
-  {path:'MyBookings', component:MyBookingsComponent},
+  {path:'MyBookings/:selectedRName/:selectedRImg/:formValues', component:MyBookingsComponent},
   {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent},
   {path:'**', component:NotFoundPageComponent}
 ];

@@ -61,12 +61,12 @@
                         <input type="number" class="input" formControlName="personsChairs">
                         <ng-container *ngIf="selector === 'false' || selector==='null'; else trueSelector  ">
                             <label for="">¿Es por alguna fecha especial?</label>
-                            <mat-radio-group aria-label="Select an option" name="selector" [(ngModel)]="selector" (change)="valueSelected()" formControlName="someEvent">
+                            <mat-radio-group aria-label="Select an option" name="selector" [(ngModel)]="selector" formControlName="someEvent">
                                 <mat-radio-button value="true">Si</mat-radio-button>
                                 <mat-radio-button value="false">No</mat-radio-button>
                             </mat-radio-group>
                         </ng-container>
-                        <ng-container >
+                        <ng-container>
                             <ng-template #trueSelector>
                                 <label for="">¿Que tipo de fecha?</label>
                                 <input type="text" class="input" formControlName="typeEvent">
@@ -75,8 +75,8 @@
                         <label for="">Fecha de Reserva</label>
                         <input type="date" class="input" [(ngModel)]="bookingDate" formControlName="bookingDate">
                         <label for="">Hora de reserva</label>
-                        <input type="time" name="time" class="input" formControlName="bookingTime">
-                        <button type="submit" class="button">Registrar</button>
+                        <input type="time" name="time" class="input" [(ngModel)]="bookingTime" formControlName="bookingTime">
+                        <button type="submit" class="button" [disabled]="formBooking.invalid" (click)="SigninBooking(selectedRName,selectedRImg)">Registrar</button>
                     </form>
                 </div>
             </div>

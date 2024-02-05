@@ -25,7 +25,7 @@
             <input type="text" class="input" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
             <label for="" class="label">Password</label>
             <input type="password" class="input" placeholder="Ingresa tu contraseña" formControlName="password">
-            <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>
+            <button type="submit" class="button" [disabled]="loginForm.invalid" (click)="formValues()">Login</button>
         </form>
     </div> 
 </body>

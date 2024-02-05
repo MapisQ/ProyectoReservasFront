@@ -31,4 +31,9 @@ export class SigninComponent {
     })
   }
 
+  signinValues(){
+    const values = this.signinForm.value;
+    console.log(values);
+  }
+
 }
