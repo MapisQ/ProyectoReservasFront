@@ -36,11 +36,12 @@ h1{
     color: aliceblue;
     cursor: pointer;
 }
-.inputMenu {
-    display: none;
-}
 .inputMenu:checked + .ulMenu{
     height: 160px;
+    
+}
+.inputMenu {
+    display: none;
 }
 .ulMenu {
     list-style: none;
@@ -210,4 +211,17 @@ h1{
     flex-direction: column;
     margin-right: 3em;
     gap: 12px;
+}
+
+
+
+/* estilos al abrir y cerrar el menú */
+.openedMenu{
+    margin-top: 12em;
+    transition: .5s;
+}
+  
+.closedMenu{
+    margin-top: 0;
+    transition: .5s;
 }

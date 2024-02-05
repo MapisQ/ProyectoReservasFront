@@ -13,6 +13,7 @@ export class FavoritesComponent {
 
   favorites:restaurantInterface[]=[]
   favRestaurant:restaurantInterface[]=[]
+  valueInput:boolean = false; 
   router=inject(Router);
 
   constructor(private _service:RestaurantServiceService){

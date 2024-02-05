@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
@@ -9,9 +9,9 @@ import { RestaurantServiceService } from '../restaurant-service.service';
   styleUrls: ['./restaurant-home.component.css']
 })
 export class RestaurantHomeComponent{
-
-  router=inject(Router); 
-
+  
+  router=inject(Router);
+  valueInput:boolean = false; 
   restaurants:restaurantInterface[]=[]
 
   constructor(private _service:RestaurantServiceService){
@@ -27,5 +27,4 @@ export class RestaurantHomeComponent{
     this.router.navigate(['/Bookings', encodeURIComponent(restaurantName), encodeURIComponent(restaurantImg)]);
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
   }
-
 }

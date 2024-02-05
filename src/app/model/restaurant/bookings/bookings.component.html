@@ -10,7 +10,7 @@
         <header class="header" id="hf">     
             <nav class="navBar" >
                 <h1>Booking Restaurant Tables</h1>
-                <div class="navEnd">
+                <div class="navEnd" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="iconUser" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -20,7 +20,7 @@
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                         </svg>
                     </label>
-                    <input type="checkbox" id="iMenu" class="inputMenu">
+                    <input type="checkbox" id="iMenu" class="inputMenu" #inputMenu  [(ngModel)]="valueInput">
                     <ul class="ulMenu">
                         <li class="liMenu">
                             <a routerLink="/RestaurantHome" class="linkMenu">Inicio</a>
@@ -40,7 +40,7 @@
             </nav>
         </header>
 
-        <div class="divG">
+        <div class="divG" [ngClass]="{'openedMenu': valueInput, 'closedMenu': !valueInput}">
             <div class="search" >
                 <form class="d-flex">
                     <input class="form-control" type="text" placeholder="Search" id="inputS">
@@ -56,12 +56,12 @@
                         <h2>{{ selectedRName }}</h2>
                         <img [src]="selectedRImg" alt="Restaurant Image">
                     </div>
-                    <form action="" class="FormReserva">
+                    <form class="FormReserva" [formGroup]="formBooking">
                         <label for="">Mesa para</label>
-                        <input type="number" class="input">
+                        <input type="number" class="input" formControlName="personsChairs">
                         <ng-container *ngIf="selector === 'false' || selector==='null'; else trueSelector  ">
                             <label for="">¿Es por alguna fecha especial?</label>
-                            <mat-radio-group aria-label="Select an option" name="selector" [(ngModel)]="selector" (change)="valueSelected()">
+                            <mat-radio-group aria-label="Select an option" name="selector" [(ngModel)]="selector" (change)="valueSelected()" formControlName="someEvent">
                                 <mat-radio-button value="true">Si</mat-radio-button>
                                 <mat-radio-button value="false">No</mat-radio-button>
                             </mat-radio-group>
@@ -69,13 +69,13 @@
                         <ng-container >
                             <ng-template #trueSelector>
                                 <label for="">¿Que tipo de fecha?</label>
-                                <input type="text" class="input">
+                                <input type="text" class="input" formControlName="typeEvent">
                             </ng-template>
                         </ng-container>
                         <label for="">Fecha de Reserva</label>
-                        <input type="date" class="input">
+                        <input type="date" class="input" [(ngModel)]="bookingDate" formControlName="bookingDate">
                         <label for="">Hora de reserva</label>
-                        <input type="time" name="time" class="input">
+                        <input type="time" name="time" class="input" formControlName="bookingTime">
                         <button type="submit" class="button">Registrar</button>
                     </form>
                 </div>
