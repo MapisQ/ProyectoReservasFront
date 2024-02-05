@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,6 +15,7 @@ export class BookingsComponent implements OnInit{
   route=inject(ActivatedRoute); 
   date=inject(DatePipe);
   _build=inject(FormBuilder);
+  router=inject(Router);
   
   restaurants:restaurantInterface[]=[]
   valueInput:boolean = false;
@@ -50,14 +51,17 @@ export class BookingsComponent implements OnInit{
   bookingDateFormat():string{
     return this.date.transform(this.bookingDate, 'dd/MM/yyyy') ?? '';
   }
+
   bookingTimeFormat():string{
     const datePipe = new DatePipe('de-DE');
     return this.date.transform(this.bookingTime, 'HH:mm') ?? '';
     //console.log(this.date.transform(this.bookingTime, 'HH:mm') ?? '');
   }
 
-  SigninBooking(){
+  SigninBooking(selectedRName:string,selectedRImg:string){
     const formValues = this.formBooking.value;
+    console.log(formValues);
+    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg), encodeURIComponent(formValues)]);
     console.log(formValues);
   }
 }
