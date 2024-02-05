@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-bookings.component.css']
 })
 export class MyBookingsComponent {
-
+  valueInput:boolean = false; 
 }

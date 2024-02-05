@@ -13,6 +13,7 @@ export class BookingsComponent implements OnInit{
   route=inject(ActivatedRoute);  
 
   restaurants:restaurantInterface[]=[]
+  valueInput:boolean = false; 
   selectedRName:string='';
   selectedRImg:string='';
   selector:String ='null';
