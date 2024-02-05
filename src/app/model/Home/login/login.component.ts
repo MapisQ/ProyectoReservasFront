@@ -27,4 +27,9 @@ export class LoginComponent {
     })
   }
 
+  formValues(){
+    const values=this.loginForm.value;
+    console.log(values);
+  }
+
 }

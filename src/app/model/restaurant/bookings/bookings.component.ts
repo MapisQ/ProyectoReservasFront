@@ -16,10 +16,11 @@ export class BookingsComponent implements OnInit{
   date=inject(DatePipe);
   _build=inject(FormBuilder);
   
-
   restaurants:restaurantInterface[]=[]
-  valueInput:boolean = false; 
+  valueInput:boolean = false;
   bookingDate:string='';
+  bookingTime:string='';
+
   selectedRName:string='';
   selectedRImg:string='';
   selector:String ='null';
@@ -28,13 +29,13 @@ export class BookingsComponent implements OnInit{
   constructor(private _service:RestaurantServiceService, _build:FormBuilder){
     this.restaurants = this._service.restaurants;
     //console.log(this.restaurants); 
-    console.log(this.selector);
+    //console.log(this.selector);
 
     this.formBooking = _build.group({
       personsChairs:['',[Validators.min(1), Validators.required]],
       someEvent:['',[Validators.required]],
-      typeEvent:['',[Validators.minLength(3), Validators.required]],
       bookingDate:['',[Validators.required]],
+      typeEvent:['', Validators.minLength(2) ],
       bookingTime:['',[Validators.required]]
     })
   }
@@ -46,16 +47,17 @@ export class BookingsComponent implements OnInit{
     });
   }
 
-  valueSelected(){
-    if(this.selector !== 'null'){
-      //console.log('El valor seleccionado es:', this.selector)
-    }
+  bookingDateFormat():string{
+    return this.date.transform(this.bookingDate, 'dd/MM/yyyy') ?? '';
+  }
+  bookingTimeFormat():string{
+    const datePipe = new DatePipe('de-DE');
+    return this.date.transform(this.bookingTime, 'HH:mm') ?? '';
+    //console.log(this.date.transform(this.bookingTime, 'HH:mm') ?? '');
   }
 
-  bookingDateFormat(){
-    //return this.date.transform(this.bookingDate, 'dd/MM/yyyy') ?? '';
-    console.log(this.date.transform(this.bookingDate, 'dd/MM/yyyy') ?? '');
+  SigninBooking(){
+    const formValues = this.formBooking.value;
+    console.log(formValues);
   }
-
-
 }

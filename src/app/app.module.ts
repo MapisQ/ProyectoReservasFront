@@ -17,6 +17,7 @@ import { FavoritesComponent } from './model/restaurant/favorites/favorites.compo
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.
     ReactiveFormsModule,
     MatRadioModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
