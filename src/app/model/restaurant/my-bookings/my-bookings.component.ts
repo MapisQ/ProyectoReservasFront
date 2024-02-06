@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
+import { myBookingInterface } from 'src/app/MyBookingInterface';
 
 @Component({
   selector: 'app-my-bookings',
@@ -10,27 +11,32 @@ import { restaurantInterface } from 'src/app/RestaurantInterface';
 })
 export class MyBookingsComponent {
   route=inject(ActivatedRoute);
-  
-  myBooking:restaurantInterface[]=[]
-  myBookings:restaurantInterface[]=[]
+
+  myBookingsList:restaurantInterface[]=[];
   selectedRName:string='';
   selectedRImg:string='';
-  formValues:string='';
+  formValues:myBookingInterface[]=[];
   valueInput:boolean = false;
 
   router=inject(Router);
 
   constructor(private _service:RestaurantServiceService){
-    this.myBooking=this._service.FavoritesRestaurants
-
-    console.log(this.myBooking);
+    this.myBookingsList=this._service.restaurants;
+    //console.log(this.myBookingsList);
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.selectedRName = decodeURIComponent(params['selectedRName']);
       this.selectedRImg = decodeURIComponent(params['selectedRImg']);
-      this.formValues = decodeURIComponent(params['formValues']);
+      const formValuesFormat = JSON.parse(decodeURIComponent(params['formValuesFormat']));
+      console.log(this.formValues);
+
+      if(Array.isArray(formValuesFormat)){
+        this.formValues=formValuesFormat;
+      }else{
+        this.formValues = [formValuesFormat];
+      }
     });
   }
 }

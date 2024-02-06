@@ -4,6 +4,7 @@ import { RestaurantServiceService } from '../restaurant-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { myBookingInterface } from 'src/app/MyBookingInterface';
 
 @Component({
   selector: 'app-bookings',
@@ -16,6 +17,7 @@ export class BookingsComponent implements OnInit{
   date=inject(DatePipe);
   _build=inject(FormBuilder);
   router=inject(Router);
+  formVal=inject(FormBuilder);
   
   restaurants:restaurantInterface[]=[]
   valueInput:boolean = false;
@@ -25,6 +27,7 @@ export class BookingsComponent implements OnInit{
   selectedRName:string='';
   selectedRImg:string='';
   selector:String ='null';
+  formValues:myBookingInterface[]=[]
   formBooking:FormGroup;
 
   constructor(private _service:RestaurantServiceService, _build:FormBuilder){
@@ -59,9 +62,20 @@ export class BookingsComponent implements OnInit{
   }
 
   SigninBooking(selectedRName:string,selectedRImg:string){
-    const formValues = this.formBooking.value;
-    console.log(formValues);
-    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg), encodeURIComponent(formValues)]);
-    console.log(formValues);
+
+    this.formBooking = this.formVal.group({
+      personsChairs: ['', [Validators.required]],
+      someEvent: ['', [Validators.required]],
+      bookingDate: ['', [Validators.required]],
+      typeEvent: ['', [Validators.required]],
+      bookingTime: ['', [Validators.required]],
+    });
+  
+
+    const formValuesFormat = this.formValues;
+    formValuesFormat.push(this.formBooking.value)
+
+    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formValuesFormat))]);
+    console.log(formValuesFormat);
   }
 }

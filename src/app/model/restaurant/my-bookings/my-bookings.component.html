@@ -40,37 +40,34 @@
         </nav>
     </header>
 
-    <div class="divG" [ngClass]="{'openedMenu': valueInput, 'closedMenu': !valueInput}">
-        <div class="search" >
-            <form class="d-flex">
-                <input class="form-control" type="text" placeholder="Search" id="inputS">
-            </form>
-        </div>
+        <div class="divCards" [ngClass]="{'openedMenu': valueInput, 'closedMenu': !valueInput}">
+            <div class="search" >
+                <form class="d-flex">
+                    <input class="form-control" type="text" placeholder="Search" id="inputS">
+                </form>
+            </div>
 
-        <div class="tittle">
-            <h1>Mis Reservas</h1>
-        </div>
+            <div class="tittle">
+                <h1>Mis Reservas</h1>
+            </div>
 
-        <div class="restaurants">
-            <div class="card" *ngFor="let myB of myBooking">
-                <div class="face front">
-                    <img  [src]="myB.img">
-                    <h3>{{myB.name}}</h3>
-                </div>
-                <div class="face back">
-                    <h3>{{myB.name}}</h3>
-                    <p>
-                        {{myB.speciality}}
-                        <br>
-                        {{myB.adress}}
-                    </p>
-                    <div class="link">
-                        <a [attr.href]="myB.url">Details</a>
+            <div class="restaurants">
+                <div class="card">
+                    <div class="face front">
+                        <img  [src]="selectedRImg">
+                        <h3>{{ selectedRName }}</h3>
                     </div>
+
+                    <div class="face back">
+                        <ng-container *ngFor="let valuesB of formValues">
+                            <p>Persons/Chairs: {{ valuesB.bookingDate}} Some Event: {{ valuesB.someEvent }} Booking Date: {{ valuesB.bookingDate }}
+                                Type Event: {{ valuesB.typeEvent }} Booking Time: {{ valuesB.bookingTime }}</p>
+                        </ng-container>
+                    </div>
+                    
                 </div>
             </div>
         </div>
-    </div>
 
     <footer class="footer" id="hf">
         <div class="social">
