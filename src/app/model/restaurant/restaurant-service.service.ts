@@ -61,6 +61,7 @@ export class RestaurantServiceService {
 }]
 
   private favoritesRestaurants:restaurantInterface[]=[]
+  
   get Restaurant(){
     return this.restaurants;
   }
