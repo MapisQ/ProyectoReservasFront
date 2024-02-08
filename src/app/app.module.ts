@@ -18,6 +18,7 @@ import { BookingsComponent } from './model/restaurant/bookings/bookings.componen
 import { MatRadioModule } from '@angular/material/radio';
 import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
 import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CommonModule, DatePipe } from '@angular/common';
     RestaurantHomeComponent,
     FavoritesComponent,
     BookingsComponent,
-    MyBookingsComponent
+    MyBookingsComponent,
+    DatePipePipe
   ],
   imports: [
     BrowserModule,

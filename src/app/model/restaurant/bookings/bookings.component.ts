@@ -21,7 +21,6 @@ export class BookingsComponent implements OnInit{
   
   restaurants:restaurantInterface[]=[]
   valueInput:boolean = false;
-  bookingDate:string='';
   bookingTime:string='';
 
   selectedRName:string='';
@@ -51,31 +50,14 @@ export class BookingsComponent implements OnInit{
     });
   }
 
-  bookingDateFormat():string{
-    return this.date.transform(this.bookingDate, 'dd/MM/yyyy') ?? '';
-  }
-
   bookingTimeFormat():string{
     const datePipe = new DatePipe('de-DE');
     return this.date.transform(this.bookingTime, 'HH:mm') ?? '';
     //console.log(this.date.transform(this.bookingTime, 'HH:mm') ?? '');
   }
 
-  SigninBooking(selectedRName:string,selectedRImg:string){
-
-    this.formBooking = this.formVal.group({
-      personsChairs: ['', [Validators.required]],
-      someEvent: ['', [Validators.required]],
-      bookingDate: ['', [Validators.required]],
-      typeEvent: ['', [Validators.required]],
-      bookingTime: ['', [Validators.required]],
-    });
-  
-
-    const formValuesFormat = this.formValues;
-    formValuesFormat.push(this.formBooking.value)
-
-    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formValuesFormat))]);
-    console.log(formValuesFormat);
+  SigninBooking(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection){
+    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
+    console.log(formBooking)
   }
 }
