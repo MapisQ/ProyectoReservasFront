@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { myBookingInterface } from 'src/app/MyBookingInterface';
+import { DatePipePipe } from '../date-pipe.pipe';
 
 @Component({
   selector: 'app-my-bookings',
@@ -33,12 +34,14 @@ export class MyBookingsComponent {
       if (Array.isArray(formBookingValues)) {
         this.formValues = formBookingValues.map(value => {
           value.someEvent = value.someEvent === 'false';
-          value.typeEvent = value.typeEvent === '' ? 'N/A' : value.typeEvent; // Si typeEvent está vacío, se establece como 'N/A'
+          value.typeEvent = value.typeEvent === '' ? 'N/A' : value.typeEvent;
+          value.bookingDate = new Date();
           return value;
         });
       } else {
         formBookingValues.someEvent = formBookingValues.someEvent === 'true';
-        formBookingValues.typeEvent = formBookingValues.typeEvent === '' ? 'N/A' : formBookingValues.typeEvent; // Si typeEvent está vacío, se establece como 'N/A'
+        formBookingValues.typeEvent = formBookingValues.typeEvent === '' ? 'N/A' : formBookingValues.typeEvent;
+        formBookingValues.bookingDate = new Date();
         this.formValues = [formBookingValues];
       }
     });
