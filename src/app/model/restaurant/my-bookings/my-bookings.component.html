@@ -59,12 +59,11 @@
                     </div>
 
                     <div class="face back">
-                        <ng-container *ngFor="let valuesB of formValues">
-                            <p>Persons/Chairs: {{ valuesB.bookingDate}} Some Event: {{ valuesB.someEvent }} Booking Date: {{ valuesB.bookingDate }}
+                        <ng-container *ngFor="let valuesB of formValues" >
+                            <p>Persons/Chairs: {{ valuesB.personsChairs}} Some Event: {{ valuesB.someEvent ? 'Sí' : 'No' }} Booking Date: {{ valuesB.bookingDate }}
                                 Type Event: {{ valuesB.typeEvent }} Booking Time: {{ valuesB.bookingTime }}</p>
                         </ng-container>
                     </div>
-                    
                 </div>
             </div>
         </div>

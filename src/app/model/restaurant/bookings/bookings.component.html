@@ -73,10 +73,10 @@
                             </ng-template>
                         </ng-container>
                         <label for="">Fecha de Reserva</label>
-                        <input type="date" class="input" [(ngModel)]="bookingDate" formControlName="bookingDate">
+                        <input type="date" class="input" formControlName="bookingDate">
                         <label for="">Hora de reserva</label>
                         <input type="time" name="time" class="input" [(ngModel)]="bookingTime" formControlName="bookingTime">
-                        <button type="submit" class="button" [disabled]="formBooking.invalid" (click)="SigninBooking(selectedRName,selectedRImg)">Registrar</button>
+                        <button type="submit" class="button" [disabled]="formBooking.invalid" (click)="SigninBooking(selectedRName,selectedRImg, formBooking.value)">Registrar</button>
                     </form>
                 </div>
             </div>
