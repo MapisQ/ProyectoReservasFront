@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,14 +6,14 @@
 </head>
 <body>
     <header>
-        <a routerLink="/Home">
+        <a routerLink="/Home" class="linkHome">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="iconHome" viewBox="0 0 16 16">
                 <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
             </svg>
         </a>
         <div class="divH">
-            <button type="submit" class="in" (click)="Login()">Login</button>
-            <button type="submit" class="in" (click)="Signin()">Signin</button>
+            <button type="submit" class="in" (click)="Login()" id="buttonL">Login</button>
+            <button type="submit" class="in" (click)="Signin()" id="buttonS">Signin</button>
         </div>
     </header>
 
@@ -25,7 +24,7 @@
             <input type="text" class="input" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
             <label for="" class="label">Password</label>
             <input type="password" class="input" placeholder="Ingresa tu contraseña" formControlName="password">
-            <button type="submit" class="button" [disabled]="loginForm.invalid" (click)="formValues()">Login</button>
+            <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>
         </form>
     </div> 
 </body>
