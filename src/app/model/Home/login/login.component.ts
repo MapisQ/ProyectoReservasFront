@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,17 +9,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  router = inject(Router)
-
+  router = inject(Router);
+  
   Login(){
     this.router.navigate(['/Login']);
   }
   Signin(){
     this.router.navigate(['/Signin']);
   }
+  loginForm:FormGroup;
 
-  loginForm:FormGroup
-  
   constructor(private _builder:FormBuilder){
     this.loginForm = this._builder.group({
       userName:['', [Validators.minLength(4), Validators.required]],
@@ -27,9 +26,9 @@ export class LoginComponent {
     })
   }
 
-  formValues(){
+ /* formValues(){
     const values=this.loginForm.value;
     console.log(values);
-  }
+  } */
 
 }

@@ -17,7 +17,7 @@ import { FavoritesComponent } from './model/restaurant/favorites/favorites.compo
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
 
 
@@ -37,6 +37,7 @@ import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ModelModule,
@@ -45,7 +46,7 @@ import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
     ReactiveFormsModule,
     MatRadioModule
   ],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
