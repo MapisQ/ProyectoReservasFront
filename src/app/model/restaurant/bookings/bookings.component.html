@@ -23,16 +23,16 @@
                     <input type="checkbox" id="iMenu" class="inputMenu" #inputMenu  [(ngModel)]="valueInput">
                     <ul class="ulMenu">
                         <li class="liMenu">
-                            <a routerLink="/RestaurantHome" class="linkMenu">Inicio</a>
+                            <a routerLink="/RestaurantHome" class="linkMenu" id="linkHome">Inicio</a>
                         </li>
                         <li class="liMenu">
-                            <a routerLink="/MyBookings" class="linkMenu">Mis Reservas</a>
+                            <a routerLink="/MyBookings" class="linkMenu" id="linkMyBookings">Mis Reservas</a>
                         </li>
                         <li class="liMenu">
-                            <a routerLink="/Favorites" class="linkMenu">Mis Favoritos</a>
+                            <a routerLink="/Favorites" class="linkMenu" id="linkMyFavorites">Mis Favoritos</a>
                         </li>
                         <li class="liMenu">
-                            <a routerLink="/Home" class="linkMenu">Cerrar Sesión</a>
+                            <a routerLink="/Home" class="linkMenu" id="linkLogOut">Cerrar Sesión</a>
                         </li>
                         
                     </ul>
@@ -105,7 +105,7 @@
                 </a>
             </div>
             <div class="aboutUs">
-              <a routerLink="/AboutUs">¿Quiénes Somos?</a>
+              <a routerLink="/AboutUs" id="LinkAboutUs">¿Quiénes Somos?</a>
             </div>
             <div class="contact">
                 <a>Contacto: +57 3669842151</a>
