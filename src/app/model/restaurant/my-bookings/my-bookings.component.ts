@@ -14,7 +14,7 @@ export class MyBookingsComponent {
   route=inject(ActivatedRoute);
   router=inject(Router);
 
-  myBookingsList:restaurantInterface[]=[];
+  myBookingsList:myBookingInterface[]=[];
   selectedRName:string='';
   selectedRImg:string='';
   formValues:myBookingInterface[]=[];

@@ -18,7 +18,7 @@ describe('Restaurant-Home-Component', () => {
     await TestBed.configureTestingModule({
       declarations: [RestaurantHomeComponent,], 
       imports: [FormsModule, ReactiveFormsModule, RouterTestingModule.withRoutes([{path:'Home', component: HomeComponent},  {path:'Favorites', component:FavoritesComponent},
-      {path:'MyBookings/:selectedRName/:selectedRImg/:formBooking', component:MyBookingsComponent}, {path:'AboutUs', component:AboutUsComponent},{path:'RestaurantHome', component:RestaurantHomeComponent},{path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent}])]
+      {path:'MyBookings/:selectedRName/:selectedRImg/:formBooking', component:MyBookingsComponent}, {path:'MyBookings', component:MyBookingsComponent}, {path:'AboutUs', component:AboutUsComponent},{path:'RestaurantHome', component:RestaurantHomeComponent},{path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent}])]
     })
     .compileComponents();
     fixture = TestBed.createComponent(RestaurantHomeComponent);
@@ -41,14 +41,14 @@ describe('Restaurant-Home-Component', () => {
     expect(fixture.componentInstance.router.url).toBe('/RestaurantHome');
   });
 
- /* it('Me redirecciona a MyBookings (Mis Reservas)', async () => {
+  it('Me redirecciona a MyBookings (Mis Reservas)', async () => {
     const link = fixture.debugElement.query(By.css('#linkMyBookings'));
     link.nativeElement.click();
     fixture.detectChanges();
 
     await fixture.whenStable();
     expect(fixture.componentInstance.router.url).toBe('/MyBookings');
-  }); */
+  }); 
 
   it('Me redirecciona a Favorites (mis Favoritos)', async () => {
     const link = fixture.debugElement.query(By.css('#linkMyFavorites'));
