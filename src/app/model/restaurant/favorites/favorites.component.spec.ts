@@ -67,18 +67,17 @@ describe('FavoritesComponent', () => {
 
         await fixture.whenStable();
         expect(fixture.componentInstance.router.url).toBe('/Home');
-    });
+    }); 
 
-   /* it('Me redirecciona a Bookings', async () => {
-        fixture.detectChanges();
-        await fixture.whenStable();
-        
-        const link = fixture.debugElement.query(By.css('#redirectBookings'));
-        link.nativeElement.click();
-    
-        expect(component.selectedComponents).toBeTruthy();
-    }); +/
-    
+    /*it('Me redirecciona a Bookings', () => {
+        const favorite = { name: 'Ko Asian Kitchen', img: 'https://salvio93.com/wp-content/uploads/2022/04/ko_1-min.png' };
+        spyOn(component, 'selectedComponents');
+
+        const linkElement = fixture.debugElement.query(By.css('#redirectBookings'));
+        console.log(linkElement);
+        linkElement.triggerEventHandler('click', null);
+        expect(component.selectedComponents).toHaveBeenCalledWith(favorite.name, favorite.img);
+      });*/
 
     /*it('Me quita el restaurante de favoritos',  async () => {
         const link = fixture.debugElement.query(By.css('#remove-restaurant'));
