@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:'AboutUs', component:AboutUsComponent},
   {path:'RestaurantHome', component:RestaurantHomeComponent},
   {path:'Favorites', component:FavoritesComponent},
+  {path:'MyBookings', component:MyBookingsComponent, pathMatch:'full'},
   {path:'MyBookings/:selectedRName/:selectedRImg/:formBooking', component:MyBookingsComponent},
   {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent},
   {path:'**', component:NotFoundPageComponent}
