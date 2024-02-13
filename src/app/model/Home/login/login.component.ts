@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/form
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { ApiServiceService } from '../ServicesHome/api-service.service';
-import { Credentials } from 'src/app/CredentialsInterface';
 
 @Component({
   selector: 'app-login',

@@ -20,7 +20,8 @@ import { ModelModule } from './model/model.module';
 import { RestaurantModule } from './model/restaurant/restaurant.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorInterceptor } from './model/Home/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     DatePipe,
-    CookieService 
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
