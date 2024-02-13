@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import { ApiServiceService } from '../ServicesHome/api-service.service';
+import { Credentials } from 'src/app/CredentialsInterface';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   router = inject(Router);
+  api=inject(ApiServiceService);
+  http=inject(HttpClient);
+  email:string='';
+  password:string='';
   
   Login(){
     this.router.navigate(['/Login']);
@@ -31,4 +38,15 @@ export class LoginComponent {
     console.log(values);
   } */
 
+  submit(loginForm:FormGroup){
+    const {userName, password} = this.loginForm.value;
+    console.log('form values', loginForm.value);
+    this.api.sendCredentials(userName, password).subscribe({
+      next:(response)=> {
+        console.log('sesión iniciada', response);
+      }, error: (error)=> {
+        console.log(userName, password);
+      }
+    })
+  }
 }
