@@ -9,6 +9,7 @@ import { FavoritesComponent } from './model/restaurant/favorites/favorites.compo
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
+import { GuardLoginGuard } from './model/Home/Cors/Guards/guard-login.guard';
 
 
 const routes: Routes = [
@@ -17,11 +18,11 @@ const routes: Routes = [
   {path:'Login', component:LoginComponent},
   {path:'Signin', component:SigninComponent},
   {path:'AboutUs', component:AboutUsComponent},
-  {path:'RestaurantHome', component:RestaurantHomeComponent},
-  {path:'Favorites', component:FavoritesComponent},
-  {path:'MyBookings', component:MyBookingsComponent, pathMatch:'full'},
-  {path:'MyBookings/:selectedRName/:selectedRImg/:formBooking', component:MyBookingsComponent},
-  {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent},
+  {path:'RestaurantHome', component:RestaurantHomeComponent, canActivate:[GuardLoginGuard]},
+  {path:'Favorites', component:FavoritesComponent, canActivate:[GuardLoginGuard]},
+  {path:'MyBookings', component:MyBookingsComponent, pathMatch:'full', canActivate:[GuardLoginGuard]},
+  {path:'MyBookings/:selectedRName/:selectedRImg/:formBooking', component:MyBookingsComponent, canActivate:[GuardLoginGuard]},
+  {path:'Bookings/:restaurantName/:restaurantImg', component:BookingsComponent, canActivate:[GuardLoginGuard]},
   {path:'**', component:NotFoundPageComponent}
 ];
 
