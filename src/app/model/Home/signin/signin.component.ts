@@ -25,15 +25,14 @@ export class SigninComponent {
       name:['', [Validators.minLength(4), Validators.required]],
       lastName:['', [Validators.minLength(4), Validators.required]],
       email: ['', [Validators.email, Validators.required]],
-      userName:['', [Validators.minLength(5), Validators.required]],
       password: ['', [Validators.minLength(5), Validators.required]],
       document: ['', [Validators.min(10)]]
     })
   }
 
-  signinValues(){
+  /*signinValues(){
     const values = this.signinForm.value;
     console.log(values);
-  }
+  }*/
 
 }

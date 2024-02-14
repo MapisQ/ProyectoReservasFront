@@ -32,14 +32,12 @@
             <div class="divF2">
                 <label for="" class="label">Email:</label>
                 <input type="email" class="input" id="inputD1" placeholder="Ingresa tu email" formControlName="email">
-                <label for="" class="label">UserName:</label>
-                <input type="text" class="input" id="inputD2" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
                 <label for="" class="label">Password:</label>
                 <input type="password" class="input" id="inputD2" placeholder="Ingresa tu contraseña" formControlName="password">
             </div>
         </form>
         <div class="button">
-            <button type="submit" class="button" [disabled]="signinForm.invalid" (click)="signinValues()">Login</button>
+            <button type="submit" class="button" [disabled]="signinForm.invalid">Login</button>
         </div>
     </div>
 </body>

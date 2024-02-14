@@ -20,8 +20,8 @@
     <div class="div1">
         <h1>Login</h1>
         <form [formGroup]="loginForm" class="form" (ngSubmit)="submit(loginForm)">
-            <label for="" class="label">UserName</label>
-            <input type="text" class="input" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
+            <label for="" class="label">Email</label>
+            <input type="email" class="input" placeholder="Ingresa tu email" formControlName="userName">
             <label for="" class="label">Password</label>
             <input type="password" class="input" placeholder="Ingresa tu contraseña" formControlName="password">
             <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>

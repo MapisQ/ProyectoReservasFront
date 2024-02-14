@@ -23,4 +23,13 @@ export class ApiServiceService {
         })
       );
   }
+
+  getToken(): string | null {
+    return this.cookie.get('token');
+  }
+
+  logout(): void {
+    this.cookie.delete('token', '/');
+    this.router.navigate(['/Login']);
+  }
 }
