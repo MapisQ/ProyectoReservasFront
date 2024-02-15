@@ -15,8 +15,6 @@ export class LoginComponent {
   router = inject(Router);
   api=inject(ApiServiceService);
   http=inject(HttpClient);
-  email:string='';
-  password:string='';
   
   Login(){
     this.router.navigate(['/Login']);
@@ -36,6 +34,8 @@ export class LoginComponent {
   submit(loginForm:FormGroup){
     const {userName, password} = this.loginForm.value;
     //console.log('form values', loginForm.value);
+    console.log('Usuario y contraseña',userName,password);
+    
     this.api.sendCredentials(userName, password).subscribe({
       next:(response)=> {
         console.log('Sesión iniciada', response);

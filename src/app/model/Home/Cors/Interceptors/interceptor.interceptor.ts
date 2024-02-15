@@ -16,7 +16,8 @@ export class InterceptorInterceptor implements HttpInterceptor {
         // Lista de endpoints que no requieren token
         const noAuthRequired = [
           '/Home',
-          // otros endpoints si es necesario
+          '/Signin', 
+          '/Login'
         ];
       
         const requiresAuth = !noAuthRequired.some(url => req.url.includes(url));
@@ -31,6 +32,8 @@ export class InterceptorInterceptor implements HttpInterceptor {
             });
           }
         }
+        console.log('REQ',req);
+        
         return next.handle(req);
   }
 }

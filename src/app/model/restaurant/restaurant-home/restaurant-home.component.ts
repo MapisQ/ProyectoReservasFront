@@ -29,7 +29,9 @@ export class RestaurantHomeComponent{
     this.router.navigate(['/Bookings', encodeURIComponent(restaurantName), encodeURIComponent(restaurantImg)]);
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
   }
-  logOut(){
-    return this.api.logout();
+
+
+  logOut() {
+    this.api.logout();
   }
 }

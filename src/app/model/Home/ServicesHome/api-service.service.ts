@@ -32,4 +32,6 @@ export class ApiServiceService {
     this.cookie.delete('token', '/');
     this.router.navigate(['/Login']);
   }
+
+
 }

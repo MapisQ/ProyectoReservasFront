@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GuardLoginGuard implements CanActivate {
+export class GuardLoginGuard {
   router=inject(Router);
 
   constructor(private cookie:CookieService){}
