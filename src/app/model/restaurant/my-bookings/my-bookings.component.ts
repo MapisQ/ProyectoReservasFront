@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { myBookingInterface } from 'src/app/MyBookingInterface';
+import { BookingServiceService } from '../Services/booking-service.service';
 
 @Component({
   selector: 'app-my-bookings',
@@ -9,22 +10,19 @@ import { myBookingInterface } from 'src/app/MyBookingInterface';
   styleUrls: ['./my-bookings.component.css']
 })
 export class MyBookingsComponent {
-  route=inject(ActivatedRoute);
-  router=inject(Router);
+  myBookingsList: myBookingInterface[] = [];
+  selectedRName = '';
+  selectedRImg = '';
+  formValues: myBookingInterface[] = [];
+  valueInput = false;
 
-  myBookingsList:myBookingInterface[]=[];
-  selectedRName:string='';
-  selectedRImg:string='';
-  formValues:myBookingInterface[]=[];
-  valueInput:boolean = false;
-
-  constructor(private _service:RestaurantServiceService){
-    this.myBookingsList=this._service.restaurants;
-    //console.log(this.myBookingsList);
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private restaurantService: RestaurantServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.myBookingsList = this._service.restaurants;
+    this.myBookingsList = this.restaurantService.restaurants;
 
     this.route.params.subscribe(params => {
       this.selectedRName = decodeURIComponent(params['selectedRName']) || '';
@@ -55,5 +53,4 @@ export class MyBookingsComponent {
       }
     });
   }
-  
 }

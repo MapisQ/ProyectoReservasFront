@@ -51,7 +51,7 @@ import { InterceptorInterceptor } from './model/Home/Cors/Interceptors/intercept
   providers: [
     DatePipe,
     CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -19,6 +19,7 @@ export class ApiSigninServiceService {
     return this.http.post(`${this.URL}/auth/register`, body, { responseType: 'text' })
       .pipe(
         tap((tokenRes: any) => {
+          //this.cookie.set('token', tokenRes, 1, '/');
           this.router.navigate(['/Login']);
         })
       );

@@ -48,7 +48,7 @@ export class SigninComponent {
     .subscribe(response =>{
       console.log('Registro completado con exito ', response);
     }, error =>{
-      console.log('Error al iniciar sesion', error);
+      console.log('Error al registrarse', error);
     })
   }
   
