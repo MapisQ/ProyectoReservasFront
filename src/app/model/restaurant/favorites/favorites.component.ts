@@ -2,6 +2,7 @@ import { Component, Inject, inject } from '@angular/core';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { Router } from '@angular/router';
+import { ApiServiceService } from '../../Home/ServicesHome/api-service.service';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class FavoritesComponent {
 
+  api=inject(ApiServiceService);
   favorites:restaurantInterface[]=[]
   favRestaurant:restaurantInterface[]=[]
   valueInput:boolean = false; 
@@ -42,6 +44,10 @@ export class FavoritesComponent {
       //this.favorites = [...this.favorites, restaurant];
       alert('No tienes el resturante en favoritos')
     }
+  }
+
+  logOut() {
+    this.api.logout();
   }
   
 

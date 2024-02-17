@@ -9,8 +9,6 @@ import { MyBookingsComponent } from '../my-bookings/my-bookings.component';
 import { AboutUsComponent } from '../../Home/about-us/about-us.component';
 import { RestaurantHomeComponent } from '../restaurant-home/restaurant-home.component';
 import { BookingsComponent } from '../bookings/bookings.component';
-import { JSDocComment } from '@angular/compiler';
-import { JsonPipe } from '@angular/common';
 
 describe('MyBookingsComponent', () => {
     let component: MyBookingsComponent;

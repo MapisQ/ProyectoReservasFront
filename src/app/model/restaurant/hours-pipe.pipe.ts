@@ -6,16 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HoursPipePipe implements PipeTransform {
 
-  constructor(private datePipe: DatePipe) {}
 
-  transform(value: Date): { date: string, time: string } {
-    // Formatear la fecha en formato yyyy-MM-dd
-    const formattedDate = this.datePipe.transform(value, 'yyyy-MM-dd') || '';
-    // Formatear la hora en formato HH:mm:ss
-    const formattedTime = this.datePipe.transform(value, 'HH:mm:ss') || ''; // Usar operador de coalescencia nula
+  transform(value: string): string {
+    const [hours, minutes, seconds] = value.split(':');
+    const hour = parseInt(hours, 10);
+    const minute = parseInt(minutes, 10);
+    const second = parseInt(seconds, 10);
 
-    // Retornar un objeto con la fecha y la hora por separado
-    return { date: formattedDate, time: formattedTime };
+    const formattedHour = hour < 10 ? '0' + hour : hour;
+    const formattedMinute = minute < 10 ? '0' + minute : minute;
+    const formattedSecond = second < 10 ? '0' + second : second;
+
+    return `${formattedHour}:${formattedMinute}:${formattedSecond}`;
   }
-
 }

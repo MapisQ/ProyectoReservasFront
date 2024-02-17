@@ -46,9 +46,21 @@ export class SigninComponent {
     console.log('form values', this.signinForm.value);
     this.api.sendsigninCredentialsUser(name, lastName, document, email, password)
     .subscribe(response =>{
-      console.log('Registro completado con exito ', response);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Registro completado con exito",
+        showConfirmButton: false,
+        timer: 1000
+      });
+      //console.log('Registro completado con exito ', response);
     }, error =>{
-      console.log('Error al registrarse', error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Por favor vuelve a intentarlo"
+      });
+      //console.log('Error al registrarse', error);
     })
   }
   

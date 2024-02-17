@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorInterceptor } from './model/Home/Cors/Interceptors/interceptor.interceptor';
+import { HoursPipePipe } from './model/restaurant/hours-pipe.pipe';
 
 @NgModule({
   declarations: [
