@@ -36,7 +36,8 @@ import { HoursPipePipe } from './model/restaurant/hours-pipe.pipe';
     FavoritesComponent,
     BookingsComponent,
     MyBookingsComponent,
-    DatePipePipe
+    DatePipePipe,
+    HoursPipePipe
   ],
   imports: [
     BrowserModule,

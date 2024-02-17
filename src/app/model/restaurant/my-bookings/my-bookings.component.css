@@ -133,9 +133,9 @@ h1{
 }
 .card .back{
     transform: perspective(600px) rotateY(180deg);
-    background-color: #92C7CF;
+    background-color: #E5E1DA;
     padding: 15px;
-    color: #f3f3f3;
+    color: #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

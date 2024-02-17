@@ -24,6 +24,7 @@ export class BookingsComponent implements OnInit{
   formVal=inject(FormBuilder);
   api=inject(ApiServiceService);
   
+  datefinal:Date | undefined;
   restaurants:restaurantInterface[]=[]
   valueInput:boolean = false;
   bookingState:boolean=true;
@@ -57,22 +58,8 @@ export class BookingsComponent implements OnInit{
     });
   }
 
-  /*bookingTimeFormat():string{
-    const datePipe = new DatePipe('de-DE');
-    return this.date.transform(this.bookingTime, 'HH:mm') ?? '';
-    //console.log(this.date.transform(this.bookingTime, 'HH:mm') ?? '');
-  }
-
-  transferData(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection){
-    this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
-
-  }*/
-
-
-
   submitBooking(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection): void {
     const { bookingDate, bookingTime, typeEvent} = this.formBooking.value;    
-    //console.log('form values', this.formBooking.value);
     this.stateFinal = this.bookingState ? 'Active' : 'Cancelled';
     this.service.sendBookingInfo(bookingDate, bookingTime,  typeEvent, this.stateFinal)
     .subscribe(response =>{
@@ -84,7 +71,7 @@ export class BookingsComponent implements OnInit{
         timer: 1000
       });
       //console.log('Reserva guardada con exito ', response);
-      //this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
+      this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
     }, error =>{
       Swal.fire({
         icon: "error",
@@ -93,7 +80,6 @@ export class BookingsComponent implements OnInit{
       });
       //console.log('Error al realizar la reserva', error);
     })
-
   }
 
   logOut() {
