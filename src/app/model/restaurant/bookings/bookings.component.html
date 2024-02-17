@@ -56,7 +56,7 @@
                         <h2>{{ selectedRName }}</h2>
                         <img [src]="selectedRImg" alt="Restaurant Image">
                     </div>
-                    <form class="FormReserva" [formGroup]="formBooking">
+                    <form class="FormReserva" [formGroup]="formBooking" (ngSubmit)="submitBooking(selectedRName,selectedRImg, formBooking.value)">
                         <label for="">Mesa para</label>
                         <input type="number" class="input" formControlName="personsChairs">
                         <ng-container *ngIf="selector === 'false' || selector==='null'; else trueSelector  ">
@@ -73,10 +73,10 @@
                             </ng-template>
                         </ng-container>
                         <label for="">Fecha de Reserva</label>
-                        <input type="date" class="input" formControlName="bookingDate">
-                        <label for="">Hora de reserva</label>
-                        <input type="time" name="time" class="input" [(ngModel)]="bookingTime" formControlName="bookingTime">
-                        <button type="submit" class="button" [disabled]="formBooking.invalid" (click)="SigninBooking(selectedRName,selectedRImg, formBooking.value)">Registrar</button>
+                        <input type="datetime-local" class="input" formControlName="bookingDate">
+                      <!--  <label for="">Hora de reserva</label>
+                        <input type="time" name="time" class="input" formControlName="bookingTime">-->
+                        <button type="submit" class="button" [disabled]="formBooking.invalid" >Registrar</button>
                     </form>
                 </div>
             </div>

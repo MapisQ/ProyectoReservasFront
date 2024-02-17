@@ -20,11 +20,11 @@
     <div class="div1">
         <h1>Login</h1>
         <form [formGroup]="loginForm" class="form">
-            <label for="" class="label">UserName</label>
-            <input type="text" class="input" placeholder="Ingresa tu nombre de usuario" formControlName="userName">
+            <label for="" class="label">Email</label>
+            <input type="email" class="input" placeholder="Ingresa tu email" formControlName="userName">
             <label for="" class="label">Password</label>
             <input type="password" class="input" placeholder="Ingresa tu contraseña" formControlName="password">
-            <button type="submit" class="button" [disabled]="loginForm.invalid">Login</button>
+            <button type="submit" class="button" [disabled]="loginForm.invalid" (click)="submit(loginForm)">Login</button>
         </form>
     </div> 
 </body>

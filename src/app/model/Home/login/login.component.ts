@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import { ApiServiceService } from '../ServicesHome/api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   router = inject(Router);
+  api=inject(ApiServiceService);
+  http=inject(HttpClient);
   
   Login(){
     this.router.navigate(['/Login']);
@@ -21,14 +26,27 @@ export class LoginComponent {
 
   constructor(private _builder:FormBuilder){
     this.loginForm = this._builder.group({
-      userName:['', [Validators.minLength(4), Validators.required]],
+      userName:['', [Validators.email, Validators.required]],
       password:['', [Validators.minLength(8), Validators.required]]
     })
   }
 
- /* formValues(){
-    const values=this.loginForm.value;
-    console.log(values);
-  } */
-
+  submit(loginForm:FormGroup){
+    const {userName, password} = this.loginForm.value;
+    //console.log('form values', loginForm.value);
+    console.log('Usuario y contraseña',userName,password);
+    
+    this.api.sendCredentials(userName, password).subscribe({
+      next:(response)=> {
+        console.log('Sesión iniciada', response);
+      }, error: (error)=> {
+        //console.log(userName, password);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Email o contraseña incorrectos"
+        });
+      }
+    })
+  }
 }

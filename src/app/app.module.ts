@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import { ModelModule } from './model/model.module';
-import { RestaurantModule } from './model/restaurant/restaurant.module';
+
+// Servicios y otros
+import { CommonModule, DatePipe } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './model/Home/home/home.component';
 import { LoginComponent } from './model/Home/login/login.component';
-import { AboutUsComponent } from './model/Home/about-us/about-us.component';
 import { SigninComponent } from './model/Home/signin/signin.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutUsComponent } from './model/Home/about-us/about-us.component';
 import { RestaurantHomeComponent } from './model/restaurant/restaurant-home/restaurant-home.component';
 import { FavoritesComponent } from './model/restaurant/favorites/favorites.component';
 import { BookingsComponent } from './model/restaurant/bookings/bookings.component';
-import { MatRadioModule } from '@angular/material/radio';
 import { MyBookingsComponent } from './model/restaurant/my-bookings/my-bookings.component';
-import { CommonModule, DatePipe} from '@angular/common';
 import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { ModelModule } from './model/model.module';
+import { RestaurantModule } from './model/restaurant/restaurant.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorInterceptor } from './model/Home/Cors/Interceptors/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,14 +41,18 @@ import { DatePipePipe } from './model/restaurant/date-pipe.pipe';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     ModelModule,
     RestaurantModule,
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -2,9 +2,10 @@ import { Component, OnInit, inject } from '@angular/core';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Time } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { myBookingInterface } from 'src/app/MyBookingInterface';
+import { BookingServiceService } from '../Services/booking-service.service';
 
 @Component({
   selector: 'app-bookings',
@@ -17,11 +18,14 @@ export class BookingsComponent implements OnInit{
   date=inject(DatePipe);
   _build=inject(FormBuilder);
   router=inject(Router);
+  service=inject(BookingServiceService)
   formVal=inject(FormBuilder);
   
   restaurants:restaurantInterface[]=[]
   valueInput:boolean = false;
-  bookingTime:string='';
+  bookingState:boolean=true;
+  userEmail:string='';
+  stateFinal:string='';
 
   selectedRName:string='';
   selectedRImg:string='';
@@ -38,8 +42,7 @@ export class BookingsComponent implements OnInit{
       personsChairs:['',[Validators.min(1), Validators.required]],
       someEvent:['',[Validators.required]],
       bookingDate:['',[Validators.required]],
-      typeEvent:['', Validators.minLength(2) ],
-      bookingTime:['',[Validators.required]]
+      typeEvent:['', Validators.minLength(2) ]
     })
   }
 
@@ -50,14 +53,36 @@ export class BookingsComponent implements OnInit{
     });
   }
 
-  bookingTimeFormat():string{
+  /*bookingTimeFormat():string{
     const datePipe = new DatePipe('de-DE');
     return this.date.transform(this.bookingTime, 'HH:mm') ?? '';
     //console.log(this.date.transform(this.bookingTime, 'HH:mm') ?? '');
   }
 
-  SigninBooking(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection){
+  transferData(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection){
     this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
-    console.log(formBooking)
+
+  }*/
+
+
+
+  submitBooking(selectedRName:string,selectedRImg:string, formBooking:HTMLAllCollection): void {
+    const { bookingDate, typeEvent} = this.formBooking.value;
+
+    console.log('form values', this.formBooking.value);
+    this.stateFinal = this.bookingState ? 'Active' : 'Cancelled';
+
+    this.service.sendBookingInfo(bookingDate,  typeEvent, this.stateFinal)
+    .subscribe(response =>{
+
+      console.log('Reserva guardada con exito ', response);
+      //this.router.navigate(['/MyBookings', encodeURIComponent(selectedRName), encodeURIComponent(selectedRImg),encodeURIComponent(JSON.stringify(formBooking))]);
+    }, error =>{
+      console.log('Error al realizar la reserva', error);
+    })
+
   }
+
+  
+
 }

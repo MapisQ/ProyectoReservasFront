@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { restaurantInterface } from 'src/app/RestaurantInterface';
 import { RestaurantServiceService } from '../restaurant-service.service';
+import { ApiServiceService } from '../../Home/ServicesHome/api-service.service';
 
 @Component({
   selector: 'app-restaurant-home',
@@ -11,6 +12,7 @@ import { RestaurantServiceService } from '../restaurant-service.service';
 export class RestaurantHomeComponent{
   
   router=inject(Router);
+  api=inject(ApiServiceService);
   valueInput:boolean = false; 
   restaurants:restaurantInterface[]=[]
 
@@ -26,5 +28,10 @@ export class RestaurantHomeComponent{
   selectedComponents(restaurantName: string, restaurantImg:string){
     this.router.navigate(['/Bookings', encodeURIComponent(restaurantName), encodeURIComponent(restaurantImg)]);
     //console.log('El Nombre del restaurante en el que quieres reservas es:', restaurantName);
+  }
+
+
+  logOut() {
+    this.api.logout();
   }
 }
