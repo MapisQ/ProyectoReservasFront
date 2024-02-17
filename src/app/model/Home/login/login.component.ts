@@ -34,11 +34,17 @@ export class LoginComponent {
   submit(loginForm:FormGroup){
     const {userName, password} = this.loginForm.value;
     //console.log('form values', loginForm.value);
-    console.log('Usuario y contraseña',userName,password);
-    
+    //console.log('Usuario y contraseña',userName,password);
     this.api.sendCredentials(userName, password).subscribe({
       next:(response)=> {
-        console.log('Sesión iniciada', response);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Has iniciado sesión",
+          showConfirmButton: false,
+          timer: 1000
+        });
+        //console.log('Sesión iniciada', response);
       }, error: (error)=> {
         //console.log(userName, password);
         Swal.fire({

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantServiceService } from '../restaurant-service.service';
 import { myBookingInterface } from 'src/app/MyBookingInterface';
-import { BookingServiceService } from '../Services/booking-service.service';
+import { ApiServiceService } from '../../Home/ServicesHome/api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-bookings',
@@ -10,11 +11,14 @@ import { BookingServiceService } from '../Services/booking-service.service';
   styleUrls: ['./my-bookings.component.css']
 })
 export class MyBookingsComponent {
+
+  api=inject(ApiServiceService);
   myBookingsList: myBookingInterface[] = [];
   selectedRName = '';
   selectedRImg = '';
   formValues: myBookingInterface[] = [];
   valueInput = false;
+    router: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,10 +51,18 @@ export class MyBookingsComponent {
             this.formValues = [formBookingValues];
           }
         } catch (error) {
-          console.error('Error parsing formBooking JSON:', error);
-          // Manejar el error como desees
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Se ha presentado un error al regitrar la reserva"
+          });
+          //onsole.error('Error parsing formBooking JSON:', error);
         }
       }
     });
+  }
+
+  logOut() {
+    this.api.logout();
   }
 }
