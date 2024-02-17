@@ -6,7 +6,7 @@ import { HoursPipePipe } from './hours-pipe.pipe';
 @NgModule({
   declarations: [
   
-    HoursPipePipe
+    
   ],
   imports: [
     CommonModule,

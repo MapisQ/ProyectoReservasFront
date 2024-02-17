@@ -9,7 +9,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class ApiSigninServiceService {
 
-  constructor(private cookie:CookieService, private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient) {
     console.log('Servicio Registro conectado');
   }
   private readonly URL = 'http://localhost:8080/api/v1'

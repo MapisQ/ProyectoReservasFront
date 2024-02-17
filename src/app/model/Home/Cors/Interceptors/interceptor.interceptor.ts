@@ -22,7 +22,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
     ];
   
     const requiresAuth = !noAuthRequired.some(url => req.url.includes(url));
-  
+    
     if (requiresAuth) {
       const token = this.cookie.get('token');
       if (token) {
@@ -31,11 +31,15 @@ export class InterceptorInterceptor implements HttpInterceptor {
         if (id) {
           // Modificar el cuerpo de la solicitud para agregar el id de usuario
           const bodyWithUserId = { ...req.body, user: { id: id } };
-          console.log(bodyWithUserId);
-          req = req.clone({ body: bodyWithUserId });
+          //console.log(bodyWithUserId);
+          req = req.clone({
+            setHeaders: {
+              Authorization: `Bearer ${token}`
+            }, body:bodyWithUserId
+          });
         }
       }
-    }        
+    }
     return next.handle(req);
   }
 }
